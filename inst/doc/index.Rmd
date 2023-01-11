@@ -133,6 +133,9 @@ Cell metadata are stored into the data.frame named `embedded` of the `gficf` obj
 # Cell meta-data can stored in the data$embedded data.frame
 # Let' add the info about the cell-line, stripping this information
 # from the name of the cell and storing it into ccl column.
+
+rownames(data$embedded) <- data$QC.metadata$cell.id
+
 data$embedded$ccl = sapply(
                             strsplit(x = rownames(data$embedded),
                                      split = "_",fixed = T)
